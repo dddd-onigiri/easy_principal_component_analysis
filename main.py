@@ -43,7 +43,7 @@ def main():
         st.write("### Scatter Plot of First Two Principal Components")
         fig, ax = plt.subplots()
         st.pyplot(plt.scatter(pc_df["PC1"], pc_df["PC2"]))
-        st.plt.savefig("plot.png")
+        st.pyplot.savefig("plot.png")
         
 if __name__ == "__main__":
     main()
