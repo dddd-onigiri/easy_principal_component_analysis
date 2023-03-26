@@ -14,7 +14,7 @@ def main():
     
     if file is not None:
         st.write("### データの読み込み")
-        df = pd.read_excel(upload_files_xlsx, sheet_name=0)
+        df = pd.read_excel(file, sheet_name=0)
         st.write(df.head())
         
         scaler = StandardScaler()
