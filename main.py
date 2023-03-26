@@ -41,6 +41,7 @@ def main():
         st.write("説明可能な分散比:", sum(pca.explained_variance_ratio_))
         
         st.write("### Scatter Plot of First Two Principal Components")
+        fig, ax = plt.subplots()
         st.pyplot(plt.scatter(pc_df["PC1"], pc_df["PC2"]))
         st.plt.savefig("plot.png")
         
