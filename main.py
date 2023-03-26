@@ -10,11 +10,11 @@ def main():
     st.title("主成分分析")
     st.write("""PCA is a technique used to reduce the dimensionality of a data set. It projects the data into a lower-dimensional space while retaining most of the variation in the data.""")
     
-    file = st.file_uploader("Upload your input CSV file", type=["csv"])
+    file = st.file_uploader("エクセルファイルをアップロードしてください。", type=["xlsx"])
     
     if file is not None:
         st.write("### データの読み込み")
-        df = pd.read_csv(file)
+        df = pd.read_excel(upload_files_xlsx, sheet_name=0)
         st.write(df.head())
         
         scaler = StandardScaler()
