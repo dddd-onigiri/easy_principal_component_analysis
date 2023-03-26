@@ -8,13 +8,15 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 
 def main():
     st.title("主成分分析")
-    st.write("""PCA is a technique used to reduce the dimensionality of a data set. It projects the data into a lower-dimensional space while retaining most of the variation in the data.""")
+    st.write("""主成分分析の説明""")
     
     file = st.file_uploader("エクセルファイルをアップロードしてください。", type=["xlsx"])
     
     if file is not None:
         st.write("### データの読み込み")
         df = pd.read_excel(file, sheet_name=0)
+        cols_to_drop = [col for col in df.columns if 'abc' in col]
+        df.drop(cols_to_drop, axis=1, inplace=True)
         st.write(df.head())
         
         scaler = StandardScaler()
@@ -40,6 +42,7 @@ def main():
         
         st.write("### Scatter Plot of First Two Principal Components")
         st.pyplot(plt.scatter(pc_df["PC1"], pc_df["PC2"]))
+        st.plt.savefig("plot.png")
         
 if __name__ == "__main__":
     main()
