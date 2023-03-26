@@ -2,3 +2,4 @@ streamlit
 pandas
 sklearn
 matplotlib
+japanize_matplotlib
